@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FimBackApplication {
+public class FimAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FimBackApplication.class, args);
+		SpringApplication.run(FimAppApplication.class, args);
 	}
 
 }
