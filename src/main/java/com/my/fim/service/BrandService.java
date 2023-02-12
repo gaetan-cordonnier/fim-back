@@ -1,15 +1,18 @@
 package com.my.fim.service;
 
-import com.my.fim.model.Brand;
+import com.my.fim.dto.BrandDto;
 
 import java.util.List;
 
 public interface BrandService {
-    Brand createBrand(Brand brand);
 
-    List<Brand> findAllBrand();
+    BrandDto createBrand(BrandDto brandDto);
 
-    Brand updateBrand(Long id, Brand brand);
+    List<BrandDto> getAllBrand();
 
-    String deleteBrand(Long id);
+    BrandDto getBrandById(Long id);
+
+    BrandDto updateBrandById(BrandDto brandDto, Long id);
+
+    void deleteBrandById(Long id);
 }

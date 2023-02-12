@@ -26,6 +26,4 @@ public class Recipe {
     private Integer nbPerson;
     @Column(length= 20)
     private Float rating;
-    @Column(length= 300)
-    private String author;
 }

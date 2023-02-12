@@ -7,15 +7,15 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name= "BRAND")
+@Table(name = "NUTRI_SCORE")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Brand {
+public class Nutriscore {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length= 150)
-    private String name;
+    @Column(length= 100)
+    private String code;
 }

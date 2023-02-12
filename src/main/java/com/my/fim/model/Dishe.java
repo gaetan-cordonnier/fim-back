@@ -7,15 +7,21 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name= "BRAND")
+@Table(name = "READY_MEAL")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Brand {
+public class Dishe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length= 150)
+    @Column(length = 50)
+    private Long code;
+    @Column(length = 150)
     private String name;
+    @Column(length = 150)
+    private String category;
+    @Column(length = 20)
+    private Float quantity;
 }

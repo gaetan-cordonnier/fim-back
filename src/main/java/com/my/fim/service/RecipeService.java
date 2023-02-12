@@ -1,16 +1,18 @@
 package com.my.fim.service;
 
-import com.my.fim.model.Recipe;
+import com.my.fim.dto.RecipeDto;
 
 import java.util.List;
 
 public interface RecipeService {
 
-    Recipe createRecipe(Recipe recipe);
+    RecipeDto createRecipe(RecipeDto recipeDto);
 
-    List<Recipe> findAllRecipe() ;
+    List<RecipeDto> getAllRecipe();
 
-    Recipe updateRecipe(Long id, Recipe recipe);
+    RecipeDto getRecipeById(Long id);
 
-    String deleteRecipe(Long id);
+    RecipeDto updateRecipeById(RecipeDto recipeDto, Long id);
+
+    void deleteRecipeById(Long id);
 }

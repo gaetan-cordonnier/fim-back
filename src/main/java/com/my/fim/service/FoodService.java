@@ -1,17 +1,19 @@
 package com.my.fim.service;
 
+import com.my.fim.dto.FoodDto;
 import com.my.fim.model.Food;
 
 import java.util.List;
 
 public interface FoodService {
 
-    Food createFood(Food food);
+    FoodDto createFood(FoodDto foodDto);
 
-    List<Food> findAllFood();
+    List<FoodDto> getAllFood();
 
-    Food updateFood(Long id, Food food);
+    FoodDto getFoodById(Long id);
 
-    String deleteFood(Long id);
+    FoodDto updateFoodById(FoodDto foodDto, Long id);
 
+    void deleteFoodById(Long id);
 }

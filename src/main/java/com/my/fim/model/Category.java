@@ -7,11 +7,11 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name= "BRAND")
+@Table(name= "FOOD_CATEGORY")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Brand {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
