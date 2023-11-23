@@ -1,5 +1,6 @@
 package com.my.fim.controller;
 
+import com.my.fim.utils.ConstantUtils;
 import com.my.fim.dto.AllergenDto;
 import com.my.fim.service.AllergenService;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequestMapping(path = "/allergen")
 @AllArgsConstructor
 public class AllergenController {
+
     private final AllergenService allergenService;
 
     @PostMapping(path = "/create")
@@ -40,6 +42,6 @@ public class AllergenController {
     @DeleteMapping(path = "/{id}/delete")
     public ResponseEntity<String> deleteAllergenById(@PathVariable("id") Long allergenId) {
         allergenService.deleteAllergenById(allergenId);
-        return new ResponseEntity<>("Allergène supprimé", HttpStatus.OK);
+        return new ResponseEntity<>(ConstantUtils.ALLERGEN_DELETED, HttpStatus.OK);
     }
 }

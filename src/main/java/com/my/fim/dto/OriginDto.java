@@ -5,8 +5,9 @@ import lombok.Data;
 @Data
 public class OriginDto {
 
-    private Long id;
+    protected Long id;
     private String type;
     private String location;
-    private String author;
+    private String authorFirstname;
+    private String authorLastname;
 }

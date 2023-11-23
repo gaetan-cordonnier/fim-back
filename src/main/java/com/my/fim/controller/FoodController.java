@@ -1,5 +1,6 @@
 package com.my.fim.controller;
 
+import com.my.fim.utils.ConstantUtils;
 import com.my.fim.dto.FoodDto;
 import com.my.fim.service.FoodService;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequestMapping(path = "/food")
 @AllArgsConstructor
 public class FoodController {
+
     private final FoodService foodService;
 
     @PostMapping(path = "/create")
@@ -40,6 +42,6 @@ public class FoodController {
     @DeleteMapping(path = "/{id}/delete")
     public ResponseEntity<String> deleteFoodById(@PathVariable("id") Long foodId) {
         foodService.deleteFoodById(foodId);
-        return new ResponseEntity<>("Aliment supprimé", HttpStatus.OK);
+        return new ResponseEntity<>(ConstantUtils.FOOD_DELETED, HttpStatus.OK);
     }
 }

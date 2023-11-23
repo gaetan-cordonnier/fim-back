@@ -1,5 +1,6 @@
 package com.my.fim.controller;
 
+import com.my.fim.utils.ConstantUtils;
 import com.my.fim.dto.EthnicityDto;
 import com.my.fim.service.EthnicityService;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequestMapping(path = "/ethnicity")
 @AllArgsConstructor
 public class EthnicityController {
+
     private final EthnicityService ethnicityService;
 
     @PostMapping(path = "/create")
@@ -40,6 +42,6 @@ public class EthnicityController {
     @DeleteMapping(path = "/{id}/delete")
     public ResponseEntity<String> deleteEthnicityById(@PathVariable("id") Long ethnicityId) {
         ethnicityService.deleteEthnicityById(ethnicityId);
-        return new ResponseEntity<>("Origine éthnique supprimée", HttpStatus.OK);
+        return new ResponseEntity<>(ConstantUtils.ETHNICITY_DELETED, HttpStatus.OK);
     }
 }

@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class CategoryDto {
 
-    private Long id;
+    protected Long id;
     private String name;
 }

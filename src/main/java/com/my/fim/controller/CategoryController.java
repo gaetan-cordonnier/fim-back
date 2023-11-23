@@ -1,5 +1,6 @@
 package com.my.fim.controller;
 
+import com.my.fim.utils.ConstantUtils;
 import com.my.fim.dto.CategoryDto;
 import com.my.fim.service.CategoryService;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequestMapping(path = "/category")
 @AllArgsConstructor
 public class CategoryController {
+
     private final CategoryService categoryService;
 
     @PostMapping(path = "/create")
@@ -40,6 +42,6 @@ public class CategoryController {
     @DeleteMapping(path = "/{id}/delete")
     public ResponseEntity<String> deleteCategoryById(@PathVariable("id") Long categoryId) {
         categoryService.deleteCategoryById(categoryId);
-        return new ResponseEntity<>("Catégorie supprimée", HttpStatus.OK);
+        return new ResponseEntity<>(ConstantUtils.CATEGORY_DELETED, HttpStatus.OK);
     }
 }

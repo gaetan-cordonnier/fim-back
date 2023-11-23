@@ -1,5 +1,6 @@
 package com.my.fim.controller;
 
+import com.my.fim.utils.ConstantUtils;
 import com.my.fim.dto.BrandDto;
 import com.my.fim.service.BrandService;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequestMapping(path = "/brand")
 @AllArgsConstructor
 public class BrandController {
+
     private final BrandService brandService;
 
     @PostMapping(path = "/create")
@@ -40,6 +42,6 @@ public class BrandController {
     @DeleteMapping(path = "/{id}/delete")
     public ResponseEntity<String> deleteBrandById(@PathVariable("id") Long brandId) {
         brandService.deleteBrandById(brandId);
-        return new ResponseEntity<>("Marque supprimée", HttpStatus.OK);
+        return new ResponseEntity<>(ConstantUtils.BRAND_DELETED, HttpStatus.OK);
     }
 }

@@ -1,7 +1,6 @@
 package com.my.fim.service;
 
 import com.my.fim.dto.FoodDto;
-import com.my.fim.model.Food;
 
 import java.util.List;
 

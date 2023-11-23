@@ -1,7 +1,7 @@
 package com.my.fim.controller;
 
+import com.my.fim.utils.ConstantUtils;
 import com.my.fim.dto.OriginDto;
-import com.my.fim.model.Origin;
 import com.my.fim.service.OriginService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,7 +14,8 @@ import java.util.List;
 @RequestMapping(path = "/origin-recipe")
 @AllArgsConstructor
 public class OriginController {
-    private final OriginService originService;
+    
+    private OriginService originService;
 
     @PostMapping(path = "/create")
     @ResponseStatus(HttpStatus.CREATED)
@@ -41,7 +42,7 @@ public class OriginController {
     @DeleteMapping(path = "/{id}/delete")
     public ResponseEntity<String> deleteOriginById(@PathVariable("id") Long originId) {
         originService.deleteOriginById(originId);
-        return new ResponseEntity<>("Origine supprimée", HttpStatus.OK);
+        return new ResponseEntity<>(ConstantUtils.ORIGIN_DELETED, HttpStatus.OK);
     }
 
 }

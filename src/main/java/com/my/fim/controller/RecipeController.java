@@ -1,5 +1,6 @@
 package com.my.fim.controller;
 
+import com.my.fim.utils.ConstantUtils;
 import com.my.fim.dto.RecipeDto;
 import com.my.fim.service.RecipeService;
 import lombok.AllArgsConstructor;
@@ -22,7 +23,7 @@ public class RecipeController {
         return new ResponseEntity<>(recipeService.createRecipe(recipeDto), HttpStatus.CREATED);
     }
 
-    @GetMapping(path = "/get/")
+    @GetMapping(path = "/get")
     public ResponseEntity<List<RecipeDto>> getAllRecipe() {
         return new ResponseEntity<>(recipeService.getAllRecipe(), HttpStatus.OK);
     }
@@ -41,6 +42,6 @@ public class RecipeController {
     @DeleteMapping(path = "/{id}/delete")
     public ResponseEntity<String> deleteRecipeById(@PathVariable("id") Long recipeId) {
         recipeService.deleteRecipeById(recipeId);
-        return new ResponseEntity<>("Recette supprimée", HttpStatus.OK);
+        return new ResponseEntity<>(ConstantUtils.RECIPE_DELETED, HttpStatus.OK);
     }
 }

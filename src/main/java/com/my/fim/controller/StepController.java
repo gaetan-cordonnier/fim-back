@@ -1,5 +1,6 @@
 package com.my.fim.controller;
 
+import com.my.fim.utils.ConstantUtils;
 import com.my.fim.dto.StepDto;
 import com.my.fim.service.StepService;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequestMapping(path = "/step")
 @AllArgsConstructor
 public class StepController {
+
     private final StepService stepService;
 
     @PostMapping(path = "/create")
@@ -40,6 +42,6 @@ public class StepController {
     @DeleteMapping(path = "/{id}/delete")
     public ResponseEntity<String> deleteStepById(@PathVariable("id") Long stepId) {
         stepService.deleteStepById(stepId);
-        return new ResponseEntity<>("Etape supprimée", HttpStatus.OK);
+        return new ResponseEntity<>(ConstantUtils.STEP_DELETED, HttpStatus.OK);
     }
 }

@@ -1,5 +1,6 @@
 package com.my.fim.controller;
 
+import com.my.fim.utils.ConstantUtils;
 import com.my.fim.dto.DisheDto;
 import com.my.fim.service.DisheService;
 import lombok.AllArgsConstructor;
@@ -41,6 +42,6 @@ public class DisheController {
     @DeleteMapping(path = "/{id}/delete")
     public ResponseEntity<String> deleteDisheById(@PathVariable("id") Long disheId) {
         disheService.deleteDisheById(disheId);
-        return new ResponseEntity<>("Plat supprimé", HttpStatus.OK);
+        return new ResponseEntity<>(ConstantUtils.DISHE_DELETED, HttpStatus.OK);
     }
 }

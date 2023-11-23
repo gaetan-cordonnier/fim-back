@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class StepDto {
 
-    private Long id;
+    protected Long id;
     private String description;
+
 }

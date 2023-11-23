@@ -4,10 +4,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name="STEP")
+@Table(name = "STEP")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,8 +15,7 @@ public class Step {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
     @Column(length = 2000)
     private String description;
-
 }

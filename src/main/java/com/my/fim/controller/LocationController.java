@@ -1,5 +1,6 @@
 package com.my.fim.controller;
 
+import com.my.fim.utils.ConstantUtils;
 import com.my.fim.dto.LocationDto;
 import com.my.fim.service.LocationService;
 import lombok.AllArgsConstructor;
@@ -41,6 +42,6 @@ public class LocationController {
     @DeleteMapping(path = "/{id}/delete")
     public ResponseEntity<String> deleteLocationById(@PathVariable("id") Long locationId) {
         locationService.deleteLocationById(locationId);
-        return new ResponseEntity<>("Lieu de stockage supprimé", HttpStatus.OK);
+        return new ResponseEntity<>(ConstantUtils.LOCATION_DELETED, HttpStatus.OK);
     }
 }
