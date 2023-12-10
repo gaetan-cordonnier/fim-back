@@ -7,4 +7,5 @@ public class AllergenDto {
 
     protected Long id;
     private String name;
+    
 }

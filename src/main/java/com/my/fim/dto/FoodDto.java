@@ -23,4 +23,5 @@ public class FoodDto {
     private Brand brand;
     private Location location;
     private List<Allergen> allergens;
+    
 }

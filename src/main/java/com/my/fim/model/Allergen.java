@@ -17,4 +17,5 @@ public class Allergen {
     protected Long id;
     @Column(length = 150)
     private String name;
+    
 }

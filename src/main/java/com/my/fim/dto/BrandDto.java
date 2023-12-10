@@ -7,4 +7,5 @@ public class BrandDto {
 
     protected Long id;
     private String name;
+    
 }

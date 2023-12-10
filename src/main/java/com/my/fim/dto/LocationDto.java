@@ -7,4 +7,5 @@ public class LocationDto {
 
     protected Long id;
     private String name;
+    
 }

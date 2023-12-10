@@ -1,10 +1,10 @@
 package com.my.fim.model;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,4 +39,5 @@ public class Food {
     private Location location = new Location();
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private List<Allergen> allergens = new ArrayList<Allergen>();
+    
 }

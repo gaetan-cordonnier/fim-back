@@ -7,4 +7,5 @@ public class CategoryDto {
 
     protected Long id;
     private String name;
+    
 }

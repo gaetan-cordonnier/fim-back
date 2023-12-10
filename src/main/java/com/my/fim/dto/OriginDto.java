@@ -10,4 +10,5 @@ public class OriginDto {
     private String location;
     private String authorFirstname;
     private String authorLastname;
+    
 }

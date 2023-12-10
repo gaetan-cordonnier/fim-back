@@ -19,4 +19,5 @@ public class DisheDto {
     private Brand brand;
     private Location location;
     private List<Allergen> allergens;
+    
 }

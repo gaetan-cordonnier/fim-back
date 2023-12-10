@@ -1,8 +1,8 @@
 package com.my.fim.controller;
 
-import com.my.fim.utils.ConstantUtils;
 import com.my.fim.dto.OriginDto;
 import com.my.fim.service.OriginService;
+import com.my.fim.utils.ConstantUtils;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/origin-recipe")
+@RequestMapping(path = "/user/origin-recipe")
 @AllArgsConstructor
 public class OriginController {
-    
+
     private OriginService originService;
 
     @PostMapping(path = "/create")

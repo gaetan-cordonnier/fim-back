@@ -9,4 +9,5 @@ public class EthnicityDto {
     private Integer index;
     private String country;
     private String continent;
+    
 }
