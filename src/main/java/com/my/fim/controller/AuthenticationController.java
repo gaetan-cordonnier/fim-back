@@ -1,5 +1,7 @@
 package com.my.fim.controller;
 
+import com.my.fim.dto.JwtDto;
+import com.my.fim.dto.SignInDto;
 import com.my.fim.dto.SignUpDto;
 import com.my.fim.model.User;
 import com.my.fim.service.AuthenticationService;
@@ -19,5 +21,11 @@ public class AuthenticationController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<User> signUp(@RequestBody SignUpDto signUpDto) {
         return new ResponseEntity<>(authenticationService.signUp(signUpDto), HttpStatus.CREATED);
+    }
+
+    @PostMapping(path = "/signin")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public ResponseEntity<JwtDto> signUp(@RequestBody SignInDto signInDto) {
+        return new ResponseEntity<>(authenticationService.signIn(signInDto), HttpStatus.CREATED);
     }
 }

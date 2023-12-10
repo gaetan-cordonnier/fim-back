@@ -32,7 +32,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             @NonNull FilterChain filterChain
     ) throws ServletException, IOException {
         if (request.getServletPath().contains("/auth")) {
-            System.out.println("DANS IF 1 ");
             filterChain.doFilter(request, response);
             return;
         }
@@ -40,21 +39,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final String jwt;
         final String userEmail;
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            System.out.println("DANS IF 2 ");
             filterChain.doFilter(request, response);
             return;
         }
         jwt = authHeader.substring(7);
         userEmail = jwtService.extractUserName(jwt);
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            System.out.println("DANS IF 3 ");
             UserDetails userDetails = userService.userDetailsService().loadUserByUsername(userEmail);
             UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
                     userDetails, null, userDetails.getAuthorities()
             );
 
             if (jwtService.isValidToken(jwt, userDetails)) {
-                System.out.println("DANS IF 4 ");
                 SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
                 token.setDetails(
                         new WebAuthenticationDetailsSource().buildDetails(request)
@@ -63,7 +59,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 SecurityContextHolder.setContext(securityContext);
             }
         }
-        System.out.println("FIN ");
+        
         filterChain.doFilter(request, response);
     }
 }
