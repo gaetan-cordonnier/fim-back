@@ -1,6 +1,7 @@
 package com.my.fim.service.impl;
 
 import com.my.fim.dto.JwtDto;
+import com.my.fim.dto.RefreshTokenDto;
 import com.my.fim.dto.SignInDto;
 import com.my.fim.dto.SignUpDto;
 import com.my.fim.model.Role;
@@ -52,5 +53,21 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         jwtDto.setRefreshToken(refreshJwt);
 
         return jwtDto;
+    }
+
+    public JwtDto refreshToken(RefreshTokenDto refreshTokenDto) {
+        String userEmail = jwtService.extractUserName(refreshTokenDto.getToken());
+        User user = userRepository.findByEmail(userEmail).orElseThrow(() -> new IllegalArgumentException("Invalid email or password."));
+        if (jwtService.isValidToken(refreshTokenDto.getToken(), user)) {
+            var jwt = jwtService.generateToken(user);
+            var refreshJwt = jwtService.generateRefreshToken(new HashMap<>(), user);
+
+            JwtDto jwtDto = new JwtDto();
+            jwtDto.setToken(jwt);
+            jwtDto.setRefreshToken(refreshJwt);
+
+            return jwtDto;
+        }
+        return null;
     }
 }

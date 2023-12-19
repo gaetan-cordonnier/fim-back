@@ -1,6 +1,7 @@
 package com.my.fim.controller;
 
 import com.my.fim.dto.JwtDto;
+import com.my.fim.dto.RefreshTokenDto;
 import com.my.fim.dto.SignInDto;
 import com.my.fim.dto.SignUpDto;
 import com.my.fim.model.User;
@@ -27,5 +28,11 @@ public class AuthenticationController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity<JwtDto> signUp(@RequestBody SignInDto signInDto) {
         return new ResponseEntity<>(authenticationService.signIn(signInDto), HttpStatus.CREATED);
+    }
+
+    @PostMapping(path = "/refresh")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public ResponseEntity<JwtDto> refreshToken(@RequestBody RefreshTokenDto refreshTokenDto) {
+        return new ResponseEntity<>(authenticationService.refreshToken(refreshTokenDto), HttpStatus.CREATED);
     }
 }
