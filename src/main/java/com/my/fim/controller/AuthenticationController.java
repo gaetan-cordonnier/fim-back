@@ -18,8 +18,8 @@ public class AuthenticationController {
     @GetMapping(path = "/check-email")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<EmailExistDto> checkUserExist(@RequestParam String email) {
-        boolean emailExists = authenticationService.checkUserExist(email);
-        EmailExistDto response = new EmailExistDto(emailExists);
+        boolean emailExist = authenticationService.checkUserExist(email);
+        EmailExistDto response = new EmailExistDto(emailExist);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 

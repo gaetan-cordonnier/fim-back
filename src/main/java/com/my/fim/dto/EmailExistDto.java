@@ -5,10 +5,10 @@ import lombok.Data;
 @Data
 public class EmailExistDto {
 
-    private boolean emailExists;
+    private boolean emailExist;
 
     public EmailExistDto(boolean emailExists) {
-        this.emailExists = emailExists;
+        this.emailExist = emailExists;
     }
 
 }
