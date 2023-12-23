@@ -34,4 +34,5 @@ build/
 
 ### Credentials ###
 application.properties
+application-*
 .env

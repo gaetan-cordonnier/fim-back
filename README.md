@@ -25,10 +25,10 @@ This application allows you to manage the food stock in a household to limit was
 
 - [Java 17](https://www.java.com/)
 - [Spring-Boot v2.7.8](https://spring.io/)
-  - JPA / Hibernate
-  - Lombok
-  - Devtools
-  - Starter Web
+    - JPA / Hibernate
+    - Lombok
+    - Devtools
+    - Starter Web
 - [Maven](https://maven.apache.org/)
 - [MySQL DataBase](https://www.mysql.com/fr/)
 

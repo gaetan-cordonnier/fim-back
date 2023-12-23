@@ -1,36 +1,47 @@
 package com.my.fim.controller;
 
-import com.my.fim.model.Brand;
+import com.my.fim.dto.BrandDto;
 import com.my.fim.service.BrandService;
+import com.my.fim.utils.ConstantUtils;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/brand")
+@RequestMapping(path = "/user/brand")
 @AllArgsConstructor
 public class BrandController {
+
     private final BrandService brandService;
 
     @PostMapping(path = "/create")
-    public Brand create(Brand food) {
-        return brandService.createBrand(food);
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<BrandDto> createBrand(@RequestBody BrandDto brandDto) {
+        return new ResponseEntity<>(brandService.createBrand(brandDto), HttpStatus.CREATED);
     }
 
-    @GetMapping(path = "/findAll")
-    public List<Brand> findAll() {
-        return brandService.findAllBrand();
+    @GetMapping(path = "/get/")
+    public ResponseEntity<List<BrandDto>> getAllBrand() {
+        return new ResponseEntity<>(brandService.getAllBrand(), HttpStatus.OK);
     }
 
-    @PutMapping("/update/{id}")
-    public Brand update(@PathVariable Long id, @RequestBody Brand food) {
-        return brandService.updateBrand(id, food);
+    @GetMapping(path = "/get/{id}")
+    public ResponseEntity<BrandDto> getBrandById(@PathVariable Long id) {
+        return ResponseEntity.ok(brandService.getBrandById(id));
     }
 
-    @DeleteMapping(path = "/delete")
-    public String delete(@PathVariable Long id) {
-        return brandService.deleteBrand(id);
+    @PutMapping("/{id}/update")
+    public ResponseEntity<BrandDto> updateBrandById(@RequestBody BrandDto brandDto, @PathVariable("id") Long brandId) {
+        BrandDto response = brandService.updateBrandById(brandDto, brandId);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @DeleteMapping(path = "/{id}/delete")
+    public ResponseEntity<String> deleteBrandById(@PathVariable("id") Long brandId) {
+        brandService.deleteBrandById(brandId);
+        return new ResponseEntity<>(ConstantUtils.BRAND_DELETED, HttpStatus.OK);
+    }
 }

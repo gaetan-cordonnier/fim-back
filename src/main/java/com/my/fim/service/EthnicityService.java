@@ -1,15 +1,18 @@
 package com.my.fim.service;
 
-import com.my.fim.model.Ethnicity;
+import com.my.fim.dto.EthnicityDto;
 
 import java.util.List;
 
 public interface EthnicityService {
-    Ethnicity createEthnicity(Ethnicity ethnicity);
 
-    List<Ethnicity> findAllEthnicity();
+    EthnicityDto createEthnicity(EthnicityDto ethnicityDto);
 
-    Ethnicity updateEthnicity(Long id, Ethnicity ethnicity);
+    List<EthnicityDto> getAllEthnicity();
 
-    String deleteEthnicity(Long id);
+    EthnicityDto getEthnicityById(Long id);
+
+    EthnicityDto updateEthnicityById(EthnicityDto ethnicityDto, Long id);
+
+    void deleteEthnicityById(Long id);
 }
