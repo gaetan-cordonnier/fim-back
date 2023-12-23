@@ -1,9 +1,6 @@
 package com.my.fim.controller;
 
-import com.my.fim.dto.JwtDto;
-import com.my.fim.dto.RefreshTokenDto;
-import com.my.fim.dto.SignInDto;
-import com.my.fim.dto.SignUpDto;
+import com.my.fim.dto.*;
 import com.my.fim.model.User;
 import com.my.fim.service.AuthenticationService;
 import lombok.AllArgsConstructor;
@@ -17,6 +14,14 @@ import org.springframework.web.bind.annotation.*;
 public class AuthenticationController {
 
     private AuthenticationService authenticationService;
+
+    @GetMapping(path = "/check-email")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<EmailExistDto> checkUserExist(@RequestParam String email) {
+        boolean emailExists = authenticationService.checkUserExist(email);
+        EmailExistDto response = new EmailExistDto(emailExists);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 
     @PostMapping(path = "/signup")
     @ResponseStatus(HttpStatus.CREATED)

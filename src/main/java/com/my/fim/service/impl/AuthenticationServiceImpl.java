@@ -29,6 +29,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     private final JwtService jwtService;
 
+    public boolean checkUserExist(String email) {
+        return userRepository.findByEmail(email).isPresent();
+    }
+
     public User signUp(SignUpDto signUpDto) {
         User user = new User();
 

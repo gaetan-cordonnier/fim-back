@@ -8,6 +8,8 @@ import com.my.fim.model.User;
 
 public interface AuthenticationService {
 
+    boolean checkUserExist(String email);
+
     User signUp(SignUpDto signUpDto);
 
     JwtDto signIn(SignInDto signInDto);
