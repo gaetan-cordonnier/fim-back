@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -31,8 +32,21 @@ public class User implements UserDetails {
     private String password;
     @Column(length = 50)
     private Role role;
+    @Column(length = 10)
+    private String language;
     @Column(length = 50)
     private String theme;
+    @Column(length = 5)
+    private Boolean validated;
+    @Column(length = 10)
+    private Integer verification;
+    @Column(length = 50)
+    private Date created;
+    @Column(length = 50)
+    private Date logged;
+    @Column(length = 50)
+    private Date updated;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

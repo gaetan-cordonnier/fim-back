@@ -15,8 +15,6 @@ public class FimAppApplication implements CommandLineRunner {
 
     @Value("${admin.firstname}")
     public String ADMIN_FIRSTNAME;
-    @Value("${admin.lastname}")
-    public String ADMIN_LASTNAME;
     @Value("${admin.email}")
     public String ADMIN_EMAIL;
     @Value("${admin.password}")
@@ -34,7 +32,6 @@ public class FimAppApplication implements CommandLineRunner {
             User user = new User();
 
             user.setFirstname(ADMIN_FIRSTNAME);
-            user.setLastname(ADMIN_LASTNAME);
             user.setEmail(ADMIN_EMAIL);
             user.setPassword(new BCryptPasswordEncoder().encode(ADMIN_PASSWORD));
             user.setRole(Role.ADMIN);

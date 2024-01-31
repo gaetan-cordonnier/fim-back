@@ -11,6 +11,8 @@ public class UserDto {
     private String email;
     private String password;
     private String role;
+    private String language;
     private String theme;
-    
+    private Boolean validated;
+
 }
